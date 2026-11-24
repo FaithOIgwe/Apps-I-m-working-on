@@ -19,6 +19,7 @@ I film a lot of sit-down videos, and I kept running into the same problem. If I 
 - Paste your script and see roughly how long it will take to say.
 - Record with the front or back camera: 0.5×, 1× or Tele lens, 1080p or 4K, at 24, 30 or 60fps.
 - Pick a look: Studio, Portrait, Bright & clean, Golden hour, Moody, Black & white or Natural. Each one sets the background blur, brightness, warmth and skin smoothing, and you can adjust any of them yourself.
+- Beauty mode tracks your face: it smooths skin while keeping your eyes, brows and lips sharp, evens out skin tone and calms shine, and can slim the face, enlarge the eyes slightly and tint your lips. Each one has its own slider, and the Glam look turns them all on.
 - Swipe left or right on the camera to change filters, the way you would on Snapchat: Glow, Blush, Peach, Clean girl, Honey, Dreamy, Y2K, Film and Sparkle (twinkles that stay behind you). A slider sets how strong each one is.
 - Record in the shape you post in: full screen, 9:16, 4:5, 1:1 or 16:9.
 - Tap the text to pause, drag it to go back, and change the speed or text size mid-take.
@@ -31,4 +32,4 @@ I film a lot of sit-down videos, and I kept running into the same problem. If I 
 
 **Honest limits.** Apple doesn't let websites use the iPhone's Cinematic mode, Action mode or ProRes. Recording in the Camera app also stops anything playing on top of it, so a floating teleprompter over the Camera app doesn't work. That's why CueCam has its own camera and looks. Background blur runs on your phone, so it's softer than Cinematic mode and edges can be imperfect, especially around hair.
 
-**Built with** plain HTML, CSS and JavaScript (one file), the browser camera and recording APIs, and Google's MediaPipe Selfie Segmentation (Apache 2.0, in `cuecam/vendor/selfie`) for the background blur.
+**Built with** plain HTML, CSS and JavaScript (one file), the browser camera and recording APIs, Google's MediaPipe Selfie Segmentation (background blur) and Face Mesh (beauty mode), both Apache 2.0 and kept in `cuecam/vendor`, plus a small WebGL shader for the skin, lips and face shape.
