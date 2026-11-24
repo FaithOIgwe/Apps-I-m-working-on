@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1080px;height:1350px;background:#0b0b0c;color:#f4f2ee;font-family:"Inter",sans-serif;overflow:hidden;position:relative}
+  .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+  .g1{width:620px;height:620px;background:#ff4d3d;right:-180px;top:180px;opacity:.28}
+  .g2{width:420px;height:420px;background:#ffd166;left:-160px;bottom:220px;opacity:.12}
+
+  .top{position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:center}
+  .brand{display:flex;align-items:center;gap:14px;font-family:"Inter Display";font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .dot{width:18px;height:18px;border-radius:50%;background:#ff4d3d;box-shadow:0 0 22px #ff4d3d}
+  .pill{font-size:20px;font-weight:600;border:1.5px solid rgba(255,255,255,.22);padding:10px 18px;border-radius:999px;color:#e8e5de}
+
+  h1{position:absolute;left:72px;top:170px;width:600px;font-family:"Inter Display";font-weight:900;font-size:80px;line-height:1.02;letter-spacing:-.03em;word-spacing:.04em}
+  h1 em{font-style:normal;color:#ff4d3d}
+  .lede{position:absolute;left:72px;top:400px;width:520px;font-size:27px;line-height:1.42;color:#cfccc5}
+
+  ul{position:absolute;left:72px;top:610px;width:540px;list-style:none;display:flex;flex-direction:column;gap:30px}
+  li{display:flex;gap:18px;align-items:flex-start;font-size:24px;line-height:1.35;color:#e6e3dc}
+  li b{color:#fff;font-weight:700}
+  li i{flex:0 0 34px;height:34px;border-radius:10px;background:#1c1c1f;border:1px solid #2c2c31;display:grid;place-items:center;font-style:normal;font-size:17px;font-weight:700;color:#ffd166;margin-top:1px}
+
+  /* phone */
+  .phone{position:absolute;right:70px;top:150px;width:372px;height:770px;border-radius:58px;background:#1a1a1c;padding:13px;
+    box-shadow:0 40px 90px rgba(0,0,0,.6), inset 0 0 0 2px #34343a;transform:rotate(4deg)}
+  .screen{position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden;
+    background:radial-gradient(circle at 22% 70%,rgba(255,196,140,.55),transparent 22%),radial-gradient(circle at 80% 58%,rgba(255,120,90,.45),transparent 20%),radial-gradient(circle at 60% 88%,rgba(255,220,170,.4),transparent 18%),linear-gradient(170deg,#4a3a33,#2a2224 55%,#171314)}
+  .bokeh{position:absolute;border-radius:50%;background:rgba(255,214,160,.35);filter:blur(6px)}
+  .person{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:270px;height:430px}
+  .head{position:absolute;left:50%;top:30px;width:128px;height:156px;border-radius:50% 50% 46% 46%;transform:translateX(-50%);
+    background:radial-gradient(circle at 40% 35%,#9a6a52,#5e3c2e 70%)}
+  .hair{position:absolute;left:50%;top:6px;width:162px;height:150px;border-radius:50% 50% 40% 40%;transform:translateX(-50%);background:#1d1412}
+  .body{position:absolute;left:0;bottom:0;width:270px;height:250px;border-radius:120px 120px 0 0;background:linear-gradient(#e9e2d6,#cbbfae)}
+  .neck{position:absolute;left:50%;top:170px;width:56px;height:50px;transform:translateX(-50%);background:#6b4535}
+  .prompt{position:absolute;left:0;right:0;top:0;height:300px;padding:62px 24px 0;background:linear-gradient(#000 0%,rgba(0,0,0,.82) 68%,rgba(0,0,0,0));
+    font-weight:700;font-size:23px;line-height:1.36;letter-spacing:-.01em}
+  .prompt .dim{opacity:.38}
+  .rl{position:absolute;left:8px;right:8px;top:130px;height:2px;background:linear-gradient(90deg,transparent,#ffd166,transparent);opacity:.6}
+  .notch{position:absolute;left:50%;top:12px;width:112px;height:32px;border-radius:20px;background:#000;transform:translateX(-50%)}
+  .chips{position:absolute;left:0;right:0;bottom:112px;display:flex;justify-content:center;gap:8px}
+  .chip{background:rgba(20,20,22,.75);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 12px;font-size:14px;font-weight:600}
+  .rec{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:68px;height:68px;border-radius:50%;border:4px solid #fff;display:grid;place-items:center}
+  .rec span{width:50px;height:50px;border-radius:50%;background:#ff4d3d}
+  .timer{position:absolute;left:50%;top:306px;transform:translateX(-50%);background:#ff4d3d;font-size:14px;font-weight:700;padding:3px 9px;border-radius:7px}
+
+  .bottom{position:absolute;left:48px;right:48px;bottom:48px;height:236px;border-radius:30px;background:#f4f2ee;color:#0b0b0c;
+    display:flex;align-items:center;gap:34px;padding:0 40px}
+  .qr{flex:0 0 160px;height:160px}
+  .qr svg{width:160px;height:160px;display:block}
+  .cta{flex:1;min-width:0}
+  .cta .k{font-size:20px;font-weight:600;color:#5d5a54;text-transform:uppercase;letter-spacing:.08em}
+  .cta .u{font-family:"Inter Display";font-weight:800;font-size:33px;letter-spacing:-.025em;margin:8px 0 12px}
+  .cta .s{font-size:21px;color:#45423d}
+  .free{flex:0 0 auto;background:#ff4d3d;color:#fff;font-family:"Inter Display";font-weight:900;font-size:40px;letter-spacing:-.02em;padding:22px 26px;border-radius:22px;transform:rotate(-3deg);line-height:1;text-align:center}
+  .free small{display:block;font-family:Inter;font-weight:600;font-size:16px;letter-spacing:0;margin-top:6px;opacity:.9}
+</style></head>
+<body>
+  <div class="glow g1"></div><div class="glow g2"></div>
+
+  <div class="top">
+    <div class="brand"><div class="dot"></div>CueCam</div>
+    <div class="pill">For iPhone · Opens in Safari</div>
+  </div>
+
+  <h1>Say it right the <em>first</em> take.</h1>
+  <p class="lede">Your script scrolls right under the lens while you record, so you sound natural and still look at your audience.</p>
+
+  <ul>
+    <li><i>1</i><span><b>Studio looks in one tap.</b> Soft background blur, warm light, smoother skin.</span></li>
+    <li><i>2</i><span><b>Shot for where you post.</b> 9:16, 4:5, 1:1 or 16:9, in up to 4K.</span></li>
+    <li><i>3</i><span><b>You set the pace.</b> Tap to pause, drag to go back, change speed mid-take.</span></li>
+    <li><i>4</i><span><b>Stays on your phone.</b> Nothing is uploaded. No sign-up.</span></li>
+  </ul>
+
+  <div class="phone"><div class="screen">
+    <div class="bokeh" style="width:46px;height:46px;left:26px;top:420px"></div>
+    <div class="bokeh" style="width:30px;height:30px;left:300px;top:380px;background:rgba(255,160,120,.4)"></div>
+    <div class="bokeh" style="width:60px;height:60px;left:270px;top:560px"></div>
+    <div class="bokeh" style="width:24px;height:24px;left:70px;top:600px;background:rgba(255,240,200,.45)"></div>
+    <div class="person"><div class="hair"></div><div class="neck"></div><div class="head"></div><div class="body"></div></div>
+    <div class="prompt"><span class="dim">Hi, I'm Faith.</span><br>Today I want to show you three things I wish I knew when I started…</div>
+    <div class="rl"></div>
+    <div class="notch"></div>
+    <div class="timer">0:42</div>
+    <div class="chips"><span class="chip">✦ Studio</span><span class="chip">0.5× · 1× · Tele</span></div>
+    <div class="rec"><span></span></div>
+  </div></div>
+
+  <div class="bottom">
+    <div class="qr"><svg viewBox="0 0 29 29" class="segno"><path class="qrline" stroke="#0b0b0c" d="M0 0.5h7m2 0h2m1 0h1m1 0h2m1 0h3m2 0h7m-29 1h1m5 0h1m1 0h1m1 0h8m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m11 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h3m1 0h3m1 0h3m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m3 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h2m3 0h6m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-20 1h1m1 0h4m2 0h3m-20 1h1m1 0h1m1 0h1m1 0h1m6 0h1m2 0h2m1 0h2m3 0h1m2 0h1m-25 1h3m2 0h1m1 0h1m2 0h1m2 0h2m2 0h3m2 0h1m2 0h1m-28 1h4m1 0h4m2 0h1m1 0h1m2 0h2m5 0h1m1 0h3m-29 1h3m1 0h1m2 0h1m3 0h1m1 0h2m1 0h2m2 0h2m5 0h1m-25 1h2m1 0h1m1 0h2m2 0h2m1 0h4m1 0h4m1 0h1m1 0h2m-27 1h1m1 0h2m2 0h1m1 0h1m1 0h1m7 0h3m2 0h1m2 0h1m-29 1h1m3 0h1m1 0h1m3 0h1m1 0h1m4 0h1m2 0h2m1 0h3m1 0h2m-29 1h1m2 0h2m3 0h2m3 0h2m2 0h1m2 0h1m1 0h4m1 0h1m-28 1h1m4 0h2m1 0h1m2 0h1m1 0h2m2 0h1m1 0h4m2 0h1m1 0h2m-28 1h3m1 0h1m1 0h1m1 0h1m2 0h1m3 0h1m4 0h2m2 0h2m1 0h1m-29 1h1m4 0h2m2 0h1m1 0h3m2 0h1m1 0h1m4 0h2m2 0h2m-28 1h4m2 0h1m5 0h3m1 0h4m2 0h1m1 0h1m1 0h1m-28 1h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m2 0h1m2 0h5m-17 1h1m1 0h4m2 0h1m2 0h2m3 0h1m1 0h3m-29 1h7m5 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h2m-29 1h1m5 0h1m5 0h2m1 0h1m1 0h2m1 0h1m3 0h2m-26 1h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h5m-25 1h1m1 0h3m1 0h1m2 0h2m2 0h1m2 0h1m3 0h1m2 0h2m1 0h3m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h2m2 0h3m2 0h1m-29 1h1m5 0h1m3 0h3m1 0h2m1 0h2m1 0h1m2 0h2m2 0h1m-28 1h7m1 0h1m1 0h1m1 0h3m1 0h2m1 0h3m1 0h2m2 0h2"/></svg></div>
+    <div class="cta">
+      <div class="k">Scan or visit</div>
+      <div class="u">faithoigwe.github.io/apps/cuecam</div>
+      <div class="s">Add it to your Home Screen to keep it like an app.</div>
+    </div>
+    <div class="free">FREE<small>no app store</small></div>
+  </div>
+</body></html>
