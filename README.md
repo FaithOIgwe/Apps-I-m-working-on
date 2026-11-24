@@ -19,6 +19,7 @@ I film a lot of sit-down videos, and I kept running into the same problem. If I 
 - Paste your script and see roughly how long it will take to say.
 - Record with the front or back camera: 0.5×, 1× or Tele lens, 1080p or 4K, at 24, 30 or 60fps.
 - Pick a look: Studio, Portrait, Bright & clean, Golden hour, Moody, Black & white or Natural. Each one sets the background blur, brightness, warmth and skin smoothing, and you can adjust any of them yourself.
+- Swipe left or right on the camera to change filters, the way you would on Snapchat: Glow, Blush, Peach, Clean girl, Honey, Dreamy, Y2K, Film and Sparkle (twinkles that stay behind you). A slider sets how strong each one is.
 - Record in the shape you post in: full screen, 9:16, 4:5, 1:1 or 16:9.
 - Tap the text to pause, drag it to go back, and change the speed or text size mid-take.
 - Turn on a grid, a screen "ring light" for dark rooms, the flashlight, or zoom, and use the mic meter to check your voice is coming through.
